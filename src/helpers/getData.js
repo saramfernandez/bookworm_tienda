@@ -1,6 +1,6 @@
 import BOOKS from '../data/books_data.json'
 
-export const pedirDatos = () => {
+export const getData = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
                 resolve(BOOKS)

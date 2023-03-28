@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { pedirDatos } from '../../helpers/getData'
+import { getData } from '../../helpers/getData'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.scss'
 import { useParams } from 'react-router-dom'
@@ -11,12 +11,10 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    console.log(categoryId)
-
+    
     useEffect(() => {
         setLoading(true)
-
-        pedirDatos()
+        getData()
             .then((res) => {
                 if (categoryId) {
                     setProductos( res.filter((prod) => prod.category === categoryId) )
